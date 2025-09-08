@@ -1,4 +1,17 @@
-name: Event Filters
+# .github/workflows/3-event-filters.yml
+name: Practice 3 - Event Filters
+
 on:
+  push:
+    branches:
+      - dev
+      - 'release/*'
+    paths-ignore:
+      - 'docs/**'
 
 jobs:
+  test-filters:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show success message
+        run: echo "Event filters working! Triggered on ${{ github.ref_name }} branch"
